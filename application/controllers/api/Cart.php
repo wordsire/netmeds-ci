@@ -2,19 +2,19 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 require APPPATH . '/libraries/REST_Controller.php';
-use Restserver\Libraries\REST_Controller;
+use Restserver\Libraries\REST_Controller; // REST file to handle REST APIs
 
 class Cart extends Rest_Controller {
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model("Cart_m");
+		$this->load->model("Cart_m"); // load Cart Model
 	}
 
 	public function index_get()
 	{
-        $user_id = $this->_apiuser->user_id;
+        $user_id = $this->_apiuser->user_id; // user_id of requested user provided by REST interface
         $data = $this->Cart_m->cart_items($user_id);
 		$this->response($data, 200);
 	}

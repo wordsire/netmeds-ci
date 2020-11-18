@@ -2036,10 +2036,13 @@ abstract class REST_Controller extends CI_Controller {
     {
         if($this->input->server("REQUEST_URI") != '/api/auth/login'){
             try{
+                //API Request Headers
                 $headers = $this->input->request_headers();
+                //Decoding JWT token and storing the user details for further use.
                 $this->_apiuser = JWT::decode($headers['Authorization'], JWT_SECRET, true);
             }
             catch(Exception $e){
+                //JWT token invalid, hence display unauthorized error.
                 $this->response(array('message'=>'You are not logged in.'), 401);
             }
         }

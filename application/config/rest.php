@@ -561,6 +561,7 @@ $config['allowed_cors_headers'] = [
     'Content-Type',
     'Accept',
     'Authorization',
+    'Access-Control-Allow-Origin',
     'Access-Control-Request-Method',
 ];
 
@@ -603,7 +604,7 @@ $config['allow_any_cors_domain'] = true;
 | e.g. $config['allowed_origins'] = ['http://www.example.com', 'https://spa.example.com']
 |
 */
-$config['allowed_cors_origins'] = [];
+$config['allowed_cors_origins'] = ['*'];
 
 /*
 |--------------------------------------------------------------------------
